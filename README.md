@@ -22,3 +22,12 @@ Genome analysis is the identification of genomic features such as gene expressio
 **You may use any programming language you feel most comfortable. We recommend Python because it is the easiest to implement. You're allowed to use any library you want to implement this**, just document which ones you used in this README file. Try to complete this as soon as possible.
 
 Regardless if you can or cannot answer the question, provide a short explanation of how you got your solution or how you think it can be solved in your README.md file. However, we highly recommend giving the challenge a try, you just might learn something new!
+
+In this project a mainly use biopython. With biopython I can read genbank file with SeqIO then extract information about gene name, start, end, strand,... With GenomeDiagram I can draw linear or circular genome graph. However, I have change something to make my graph more understandable. Firstly I change the direction of negative strand to clockwise so that the viewer so that if it negative or positive strand the viewer can look at the graph more understandable. Secondly, I random the color to set for each of gene for the graph to help viewer distinguish between different genes. Finally, I add an inner circle to show to data of start and end of genes so that the viewer have more informations.
+
+The libray that I use:
+biopython
+https://biopython.org/wiki/Download
+reportlab
+https://pypi.org/project/reportlab/
+
