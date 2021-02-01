@@ -4,7 +4,6 @@ from Bio.Graphics import GenomeDiagram
 from Bio import SeqIO
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 
-
 #set the arrow sigil properties
 def _draw_sigil_arrow(
         self, bottom, center, top, startangle, endangle, strand, **kwargs
@@ -111,8 +110,6 @@ for feature in record.features:
             label_size=15,
             label_color=color,
         )
-#
-
 
 #Drawing
 
