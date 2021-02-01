@@ -89,23 +89,28 @@ for feature in record.features:
     
     color = colors.black
 
-    temp_end = str(feature.location.end)
-    temp_start = str(feature.location.start)
+    temp_end = feature.location.end
+    temp_start = feature.location.start
 
-    if feature.location.strand < 0:
-        temp = temp_end
-        temp_end = temp_start
-        temp_start = temp
-
-    feature.qualifiers["gene"][0] = temp_end
+    feature.location = FeatureLocation(temp_start, temp_start)
     gd_feature_set.add_feature(
-        feature, sigil="BIGARROW", color=color, label=True, label_size=10, label_angle=0, label_position = "end", arrowshaft_height=0.001,  arrowhead_length=0.0001
-    )
+            feature,
+            color=color,
+            name= str(temp_start),
+            label=True,
+            label_size=15,
+            label_color=color,
+        )
 
-    feature.qualifiers["gene"][0] = temp_start
+    feature.location = FeatureLocation(temp_end, temp_end)
     gd_feature_set.add_feature(
-        feature, sigil="BIGARROW", color=color, label=True, label_size=10, label_angle=0, label_position = "start", arrowshaft_height=0.001,  arrowhead_length=0.0001
-    )
+            feature,
+            color=color,
+            name= str(temp_end),
+            label=True,
+            label_size=15,
+            label_color=color,
+        )
 #
 
 
