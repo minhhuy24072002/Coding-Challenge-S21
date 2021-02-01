@@ -4,11 +4,12 @@ from Bio.Graphics import GenomeDiagram
 from Bio import SeqIO
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 
+
 #set the arrow sigil properties
 def _draw_sigil_arrow(
         self, bottom, center, top, startangle, endangle, strand, **kwargs
     ):
-        """Draw ARROW sigil (PRIVATE)."""
+        
         if strand == 1:
             inner_radius = center
             outer_radius = top
@@ -56,6 +57,30 @@ for feature in record.features:
         feature, sigil="ARROW", color=color, label=True, label_size=14, label_angle=0, label_position = "end", arrowshaft_height=0.4
     )
 
+# I want to include some strandless features, so for an example will use EcoRI recognition sites.
+
+for site, name, color in [
+    ("GAATTC", "EcoRI", colors.green),
+    ("CCCGGG", "SmaI", colors.orange),
+    ("AAGCTT", "HindIII", colors.red),
+    ("GGATCC", "BamHI", colors.purple),
+]:
+    index = 0
+    while True:
+        index = record.seq.find(site, start=index)
+        if index == -1:
+            break
+        feature = SeqFeature(FeatureLocation(index, index + len(site)))
+        gd_name_set.add_feature(
+            feature,
+            color=color,
+            name=name,
+            label=True,
+            label_size=10,
+            label_color=color,
+        )
+        index += len(site)
+
 #add Feature to incircle
 
 for feature in record.features:
@@ -81,7 +106,11 @@ for feature in record.features:
     gd_feature_set.add_feature(
         feature, sigil="BIGARROW", color=color, label=True, label_size=10, label_angle=0, label_position = "start", arrowshaft_height=0.001,  arrowhead_length=0.0001
     )
+#
+
+
 #Drawing
+
 gd_diagram.draw(
     format="circular",
     circular=True,
