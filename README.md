@@ -23,7 +23,7 @@ Genome analysis is the identification of genomic features such as gene expressio
 
 Regardless if you can or cannot answer the question, provide a short explanation of how you got your solution or how you think it can be solved in your README.md file. However, we highly recommend giving the challenge a try, you just might learn something new!
 
-In this project a mainly use biopython. With biopython I can read genbank file with SeqIO then extract information about gene name, start, end, strand,... With GenomeDiagram I can draw linear or circular genome graph. However, I have change something to make my graph more understandable. Firstly, I random the color to set for each of gene for the graph to help viewer distinguish between different genes. Secondly, I add an inner circle to show to data of start and end of genes so that the viewer have more informations. Finally, I add EcoRI recognition, an strandless feature, to give more information to the viewer.
+In this project a mainly use biopython. With biopython I can read genbank file with SeqIO then extract information about gene name, start, end, strand,... With GenomeDiagram I can draw linear or circular genome graph. However, I have change something to make my graph more understandable. Firstly, I set the color differently for each of gene for the graph to help viewer distinguish between different genes. Secondly, I add an inner circle to show to data of start and end of genes so that the viewer have more informations. Finally, I add EcoRI recognition, an strandless feature, to give more information to the viewer.
 
 The libray that I use:
 biopython
